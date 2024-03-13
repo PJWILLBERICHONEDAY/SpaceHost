@@ -29,33 +29,13 @@ export async function POST(req: Request, res: Response) {
       const session = event.data.object;
       console.log('session', session);
 
-      const {
+      
         // @ts-ignore
-        metadata: {
-          adults,
-          checkinDate,
-          checkoutDate, 
-          Space,
-          numberOfDays,
-          user,
-          discount,
-          totalPrice,
-        },
-      } = session;
+        
 
-      await createBooking({
-        person: Number(adults),
-        checkinDate,
-        checkoutDate,
-     
-        Space,
-        numberOfDays: Number(numberOfDays),
-        discount: Number(discount),
-        totalPrice: Number(totalPrice),
-        user,
-      });
+      
+      
 
-      await updateSpace(Space);
 
       return NextResponse.json('Booking successful', {
         status: 200,
